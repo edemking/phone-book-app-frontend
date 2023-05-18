@@ -1,19 +1,21 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import Posts from './components/Posts.vue'
+import { inject, reactive } from 'vue'
+import { usePostsStore } from './stores/posts';
+import { useToast } from "vue-toastification";
+
+// Get toast interface
+const toast = useToast();
+
+// fetchContacts();
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
   <main>
-    <TheWelcome />
+    <div class="text-center mb-5">
+      <h1><font-awesome-icon icon="address-book" /> Phone Book App</h1>
+    </div>
+    <Posts :contacts="contacts" />
   </main>
 </template>
 
